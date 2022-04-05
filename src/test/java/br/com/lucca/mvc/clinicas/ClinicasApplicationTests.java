@@ -1,4 +1,4 @@
-package br.com.lucca.clinicas;
+package br.com.lucca.mvc.clinicas;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

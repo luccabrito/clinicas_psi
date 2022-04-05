@@ -12,12 +12,12 @@
             </div>
             <nav class="navbar navbar-expand navbar-light bg-light d-flex justify-content-between mb-3">
                 <div class="navbar-nav">
-                    <a class="nav-item nav-link active" href="">Todas as clínicas</a>
+                    <a class="nav-item nav-link active" href="/home">Todas as clínicas</a>
                     <a class="nav-item nav-link" href="">Com atendimento emergencial</a>
                 </div>
                 <a href="/clinica/formulario"><button class="btn btn-outline-secondary my-2 my-sm-0">Nova clínica</button></a>
             </nav>
-            <div class="card" style="width: 25rem;" th:each="clinica : ${clinicas}">
+            <div class="card ps-2 pe-2 pb-2 pt-2 mb-3" style="width: 25rem;" th:each="clinica : ${clinicas}">
                 <div class="card-header" th:text="${clinica.nomeClinica}">Nome da clínica</div>
                 <div>Endereço: <span th:text="${clinica.endereco}"></span></div>
                 <div>Número de telefone: <span th:text="${clinica.telefone}"></span></div>

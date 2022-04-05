@@ -5,22 +5,24 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import java.util.Arrays;
 import java.util.List;
 
 @Controller
 public class HomeController {
 
+    @PersistenceContext
+    private EntityManager entityManager;
+
     @GetMapping("/home")
     public String home(Model model) {
-        Clinica clinica = new Clinica();
-        clinica.setNomeClinica("SPA - UFPE");
-        clinica.setAbordagem("Psicanálise e ACP");
-        clinica.setDescricao("Clínica-escola do curso de Psicologia da UFPE");
-        clinica.setEndereco("Av. dos Reitores, 360");
-        clinica.setTelefone("(81) 3298-6565");
 
-        List<Clinica> clinicas = Arrays.asList(clinica);
+        Query query = entityManager.createQuery("select p from Clinica p", Clinica.class);
+        List<Clinica> clinicas = query.getResultList();
+
         model.addAttribute("clinicas", clinicas);
         return "home";
     }

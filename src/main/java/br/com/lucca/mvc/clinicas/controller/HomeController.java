@@ -14,11 +14,11 @@ import java.util.List;
 public class HomeController {
 
     @Autowired
-    private ClinicaRepository repository;
+    private ClinicaRepository pedidoRepository;
 
     @GetMapping("/home")
     public String home(Model model) {
-        List<Clinica> clinicas = repository.recuperaTodasAsClinicas();
+        List<Clinica> clinicas = pedidoRepository.findAll();
         model.addAttribute("clinicas", clinicas);
         return "home";
     }

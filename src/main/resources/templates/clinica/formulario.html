@@ -10,28 +10,40 @@
             <div class="mt-4 p-5 bg-primary text-white rounded">
                 <h1 class="display-4">Cadastro de nova clínica</h1>
             </div>
-            <form action="/pedido/novo" method="post">
-                <div>
-                    <label for="nomeClinica">Nome da clínica</label>
-                    <input name="nomeClinica" placeholder="Nome da clínica">
-                    <small>Informe o nome da clínica.</small>
-                </div>
-                <div>
-                    <label for="endereco">Endereço da clínica</label>
-                    <input name="endereco" placeholder="Endereço da clínica">
-                    <small>Informe o endereço da clínica.</small>
-                </div>
-                <div>
-                    <label for="telefone">Telefone da clínica</label>
-                    <input name="telefone" placeholder="Telefone da clínica">
-                    <small>Informe o telefone da clínica.</small>
-                </div>
-                <div>
-                    <label for="descricao">Descrição</label>
-                    <textarea name="descricao" placeholder="Adicione detalhes importantes para ajudar o usuário."></textarea>
-                </div>
-                <button type="submit">Cadastrar</button>
-            </form>
+            <div class="card mt-3">
+                <form th:object="${requisicaoNovaClinica}" class="card-body" action="/clinica/novo" method="post">
+                    <div class="form-group mt-3 mb-3">
+                        <label for="nomeClinica">Nome da clínica</label>
+                        <input th:field="*{nomeClinica}" class="form-control" placeholder="Nome da clínica">
+                        <small>Informe o nome da clínica.</small>
+                    </div>
+                    <div class="form-group mt-3 mb-3">
+                        <label for="endereco">Endereço da clínica</label>
+                        <input th:field="*{endereco}" class="form-control" placeholder="Endereço da clínica">
+                        <small>Informe o endereço da clínica.</small>
+                    </div>
+                    <div class="form-group mt-3 mb-3">
+                        <label for="telefone">Telefone da clínica</label>
+                        <input th:field="*{telefone} "class="form-control" placeholder="Telefone da clínica">
+                        <small>Informe o telefone da clínica.</small>
+                    </div>
+                    <div class="form-group mt-3 mb-3">
+                        <label for="temAtendimentoEmergencial">Atendimento Emergencial</label>
+                        <input th:field="*{temAtendimentoEmergencial}" class="form-control" placeholder="Emergência?">
+                        <small>Se a clínica tiver atendimento emergencial, coloque "1". Se não, coloque "0".</small>
+                    </div>
+                    <div class="form-group mt-3 mb-3">
+                        <label for="abordagem">Abordagem</label>
+                        <input th:field="*{abordagem}" class="form-control" placeholder="Aborgadem psicológica">
+                        <small>Se a clínica tiver um enfoque em alguma das abordagens psicológicas, favor explicitar.</small>
+                    </div>
+                    <div class="form-group mt-3 mb-3">
+                        <label for="descricao">Descrição</label>
+                        <textarea th:field="*{descricao}" class="form-control" placeholder="Adicione detalhes importantes para ajudar o usuário."></textarea>
+                    </div>
+                    <button class="btn btn-success" type="submit">Cadastrar</button>
+                </form>
+            </div>
         </div>
     </body>
 </html>

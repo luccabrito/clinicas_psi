@@ -16,6 +16,19 @@ public class Clinica {
     private String telefone;
     private String abordagem;
     private String descricao;
+    private Boolean temAtendimentoEmergencial;
+
+    public Long getId() {
+        return id;
+    }
+
+    public Boolean getTemAtendimentoEmergencial() {
+        return temAtendimentoEmergencial;
+    }
+
+    public void setTemAtendimentoEmergencial(Boolean temAtendimentoEmergencial) {
+        this.temAtendimentoEmergencial = temAtendimentoEmergencial;
+    }
 
     public String getNomeClinica() {
         return nomeClinica;

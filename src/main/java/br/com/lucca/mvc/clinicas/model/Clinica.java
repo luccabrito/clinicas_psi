@@ -22,7 +22,7 @@ public class Clinica {
         return id;
     }
 
-    public Boolean getTemAtendimentoEmergencial() {
+    public Boolean temAtendimentoEmergencial() {
         return temAtendimentoEmergencial;
     }
 

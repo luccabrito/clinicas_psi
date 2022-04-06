@@ -28,10 +28,10 @@ public class ClinicaController {
     public String novo(@Valid RequisicaoNovaClinica requisicao, BindingResult result) {
         if (result.hasErrors()) {
             return "clinica/formulario";
-        } else {
-            Clinica clinica = requisicao.toClinica();
-            clinicaRepository.save(clinica);
-            return "home";
         }
+
+        Clinica clinica = requisicao.toClinica();
+        clinicaRepository.save(clinica);
+        return "redirect:/home";
     }
 }
